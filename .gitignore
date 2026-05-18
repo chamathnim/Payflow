@@ -70,3 +70,7 @@ logs/
 *.tfstate
 *.tfstate.backup
 *.tfvars
+
+# Windows Alternative Data Streams / Zone Identifiers
+*_Zone.Identifier
+*:Zone.Identifier
