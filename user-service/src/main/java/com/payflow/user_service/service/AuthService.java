@@ -5,6 +5,7 @@ import com.payflow.user_service.dto.LoginRequest;
 import com.payflow.user_service.dto.RegisterRequest;
 import com.payflow.user_service.entity.Role;
 import com.payflow.user_service.entity.User;
+import com.payflow.user_service.exception.EmailAlreadyExistsException;
 import com.payflow.user_service.repository.UserRepository;
 import com.payflow.user_service.security.JwtService;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class AuthService {
     public AuthResponse register(RegisterRequest request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email already registered");
+            throw new EmailAlreadyExistsException("Email already registered");
         }
 
         User newUser = User.builder()
