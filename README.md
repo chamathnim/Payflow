@@ -60,8 +60,8 @@ API Gateway (Spring Cloud Gateway)
 ## Project Roadmap
 
 - [x] Phase 1 — Project setup and repository structure
-- [ ] Phase 2 — User Service (Registration, Login, JWT)
-- [ ] Phase 3 — Wallet Service (Balance, Top-up)
+- [x] Phase 2 — User Service (Registration, Login, JWT)
+- [x] Phase 3 — Wallet Service (Balance, Top-up)
 - [ ] Phase 4 — Transaction Service (Transfers, Idempotency, Fraud)
 - [ ] Phase 5 — Kafka (Notification + Audit Services)
 - [ ] Phase 6 — API Gateway (Routing + Auth Filter)
