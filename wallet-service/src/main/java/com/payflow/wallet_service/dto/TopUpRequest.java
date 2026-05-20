@@ -17,6 +17,5 @@ public class TopUpRequest {
     private Long userId;
 
     @NotNull(message = "Amount is required")
-    @Positive
     private BigDecimal amount;
 }
