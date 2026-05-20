@@ -7,9 +7,11 @@ import com.payflow.transaction_service.dto.TransactionResponse;
 import com.payflow.transaction_service.entity.Transaction;
 import com.payflow.transaction_service.entity.TransactionStatus;
 import com.payflow.transaction_service.entity.TransactionType;
+import com.payflow.transaction_service.event.TransactionEvent;
 import com.payflow.transaction_service.exception.FraudulentTransactionException;
 import com.payflow.transaction_service.exception.InsufficientBalanceException;
 import com.payflow.transaction_service.exception.TransactionNotFoundException;
+import com.payflow.transaction_service.kafka.TransactionEventProducer;
 import com.payflow.transaction_service.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,7 @@ public class TransactionService {
     private final TransactionRepository transactionRepository;
     private final FraudService fraudService;
     private final WalletClient walletClient;
+    private final TransactionEventProducer transactionEventProducer;
 
     public TransactionResponse processTransaction(TransactionRequest request) {
 
@@ -60,6 +63,21 @@ public class TransactionService {
             walletClient.topUp(request.getSenderId(), request.getAmount().negate());
             walletClient.topUp(request.getReceiverId(), request.getAmount());
             savedTransaction.setStatus(TransactionStatus.COMPLETED);
+
+            TransactionEvent event = TransactionEvent.builder()
+                    .transactionId(savedTransaction.getId())
+                    .idempotencyKey(savedTransaction.getIdempotencyKey())
+                    .senderId(savedTransaction.getSenderId())
+                    .receiverId(savedTransaction.getReceiverId())
+                    .amount(savedTransaction.getAmount())
+                    .currency(savedTransaction.getCurrency())
+                    .status(savedTransaction.getStatus())
+                    .type(savedTransaction.getType())
+                    .description(savedTransaction.getDescription())
+                    .createdAt(savedTransaction.getCreatedAt())
+                    .build();
+
+            transactionEventProducer.publishTransactionEvent(event);
 
         } catch (Exception e) {
             savedTransaction.setStatus(TransactionStatus.FAILED);
