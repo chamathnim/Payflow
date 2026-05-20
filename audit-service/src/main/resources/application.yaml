@@ -1,0 +1,35 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: audit-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:7000/payflow_audit
+    username: payflow
+    password: payflow123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: audit-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        # CRUCIAL: Tell the deserializer to target your local class directly
+        spring.json.value.default.type: "com.payflow.audit_service.event.TransactionEvent"
+        # CRUCIAL: Ignore the '__TypeId__' header sent by the transaction-service
+        spring.json.use.type.headers: false
