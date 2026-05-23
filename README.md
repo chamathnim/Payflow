@@ -1,8 +1,11 @@
 # PayFlow — Digital Payment Processing Platform
 
-![User Service CI](https://github.com/chamathnim/payflow/actions/workflows/user-service.yml/badge.svg)
-![Wallet Service CI](https://github.com/chamathnim/payflow/actions/workflows/wallet-service.yml/badge.svg)
-![Transaction Service CI](https://github.com/chamathnim/payflow/actions/workflows/transaction-service.yml/badge.svg)
+![User Service CI](https://github.com/chamathnim/payflow/actions/workflows/user-service.yaml/badge.svg)
+![Wallet Service CI](https://github.com/chamathnim/payflow/actions/workflows/wallet-service.yaml/badge.svg)
+![Transaction Service CI](https://github.com/chamathnim/payflow/actions/workflows/transaction-service.yaml/badge.svg)
+![Notification Service CI](https://github.com/chamathnim/payflow/actions/workflows/notification-service.yaml/badge.svg)
+![Audit Service CI](https://github.com/chamathnim/payflow/actions/workflows/audit-service.yaml/badge.svg)
+![API Gateway CI](https://github.com/chamathnim/payflow/actions/workflows/api-gateway.yaml/badge.svg)
 
 A production-grade, cloud-native payment processing platform built with Java, Spring Boot Microservices, Kafka, Docker, and AWS.
 
