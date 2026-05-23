@@ -62,10 +62,10 @@ API Gateway (Spring Cloud Gateway)
 - [x] Phase 1 — Project setup and repository structure
 - [x] Phase 2 — User Service (Registration, Login, JWT)
 - [x] Phase 3 — Wallet Service (Balance, Top-up)
-- [ ] Phase 4 — Transaction Service (Transfers, Idempotency, Fraud)
-- [ ] Phase 5 — Kafka (Notification + Audit Services)
-- [ ] Phase 6 — API Gateway (Routing + Auth Filter)
-- [ ] Phase 7 — Docker Compose (Full local stack)
+- [x] Phase 4 — Transaction Service (Transfers, Idempotency, Fraud)
+- [x] Phase 5 — Kafka (Notification + Audit Services)
+- [x] Phase 6 — API Gateway (Routing + Auth Filter)
+- [x] Phase 7 — Docker Compose (Full local stack)
 - [ ] Phase 8 — GitHub Actions CI/CD
 - [ ] Phase 9 — AWS Deployment (EC2 + RDS)
 - [ ] Phase 10 — Kubernetes + Terraform + Monitoring
