@@ -1,5 +1,9 @@
 # PayFlow — Digital Payment Processing Platform
 
+![User Service CI](https://github.com/chamathnim/payflow/actions/workflows/user-service.yml/badge.svg)
+![Wallet Service CI](https://github.com/chamathnim/payflow/actions/workflows/wallet-service.yml/badge.svg)
+![Transaction Service CI](https://github.com/chamathnim/payflow/actions/workflows/transaction-service.yml/badge.svg)
+
 A production-grade, cloud-native payment processing platform built with Java, Spring Boot Microservices, Kafka, Docker, and AWS.
 
 > Built as a portfolio project to demonstrate real-world backend and DevOps engineering skills.
@@ -86,4 +90,4 @@ API Gateway (Spring Cloud Gateway)
 ## Author
 
 **Chamath** — Java & Spring Boot Developer
-[GitHub](https://github.com/YOUR_USERNAME)
+[GitHub](https://github.com/chamathnim)
