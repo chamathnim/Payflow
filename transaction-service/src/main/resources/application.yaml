@@ -29,3 +29,4 @@ spring:
 services:
   wallet:
     url: http://localhost:8082
+
