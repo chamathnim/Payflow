@@ -1,14 +1,14 @@
-name: User Service CI
+name: notification Service CI
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'user-service/**'
+      - 'notification-service/**'
   pull_request:
     branches: [ main ]
     paths:
-      - 'user-service/**'
+      - 'notification-service/**'
 
 jobs:
   build:
@@ -26,9 +26,9 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        working-directory: user-service
+        working-directory: notification-service
         run: mvn clean package -DskipTests
 
       - name: Build Docker image
-        working-directory: user-service
-        run: docker build -t payflow-user-service:${{ github.sha }} .
+        working-directory: notification-service
+        run: docker build -t payflow-notification-service:${{ github.sha }} .

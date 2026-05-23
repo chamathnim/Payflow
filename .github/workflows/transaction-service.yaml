@@ -1,14 +1,14 @@
-name: User Service CI
+name: transaction Service CI
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'user-service/**'
+      - 'transaction-service/**'
   pull_request:
     branches: [ main ]
     paths:
-      - 'user-service/**'
+      - 'transaction-service/**'
 
 jobs:
   build:
@@ -26,9 +26,9 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        working-directory: user-service
+        working-directory: transaction-service
         run: mvn clean package -DskipTests
 
       - name: Build Docker image
-        working-directory: user-service
-        run: docker build -t payflow-user-service:${{ github.sha }} .
+        working-directory: transaction-service
+        run: docker build -t payflow-transaction-service:${{ github.sha }} .
