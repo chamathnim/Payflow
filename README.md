@@ -35,7 +35,7 @@ API Gateway (Spring Cloud Gateway)
 
 | Layer | Technology |
 |---|---|
-| Language | Java 17 |
+| Language | Java 21 |
 | Framework | Spring Boot 3, Spring Cloud |
 | API Gateway | Spring Cloud Gateway |
 | Auth | Spring Security, JWT |
@@ -73,7 +73,7 @@ API Gateway (Spring Cloud Gateway)
 - [x] Phase 5 — Kafka (Notification + Audit Services)
 - [x] Phase 6 — API Gateway (Routing + Auth Filter)
 - [x] Phase 7 — Docker Compose (Full local stack)
-- [ ] Phase 8 — GitHub Actions CI/CD
+- [x] Phase 8 — GitHub Actions CI/CD
 - [ ] Phase 9 — AWS Deployment (EC2 + RDS)
 - [ ] Phase 10 — Kubernetes + Terraform + Monitoring
 
@@ -84,7 +84,7 @@ API Gateway (Spring Cloud Gateway)
 > Full setup instructions will be added as each phase is completed.
 
 ### Prerequisites
-- Java 17+
+- Java 21
 - Docker + Docker Compose
 - Maven
 
